@@ -1,100 +1,184 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
+// Methode MyApp
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Aplikasi Latihan',
       debugShowCheckedModeBanner: false,
-      home: const HalamanUtama(),
+      title: "Aplikasi Terbaru",
+      home: MyHome(),
     );
   }
 }
 
-class HalamanUtama extends StatefulWidget {
-  const HalamanUtama({super.key});
-
-  @override
-  State<HalamanUtama> createState() => _HalamanUtamaState();
-}
-
-class _HalamanUtamaState extends State<HalamanUtama> {
-  int _index = 0;
-
-  final List<Widget> halaman = const [
-    Center(
-      child: Text(
-        'Selamat Datang Di Aplikasi Saya',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 18),
-      ),
-    ),
-    Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Nama: Bagus FerdianSyah', style: TextStyle(fontSize: 16)),
-          SizedBox(height: 8),
-          Text('NIM: 1123150038', style: TextStyle(fontSize: 16)),
-          SizedBox(height: 8),
-          Text('Mata Kuliah: Aplikasi Mobile', style: TextStyle(fontSize: 16)),
-        ],
-      ),
-    ),
-    Center(
-      child: Text(
-        'Pengaturan belum dibuat',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 18),
-      ),
-    ),
-  ];
-
-  void _gantiHalaman(int i) {
-    setState(() {
-      _index = i;
-    });
-  }
+// method MyHome
+class MyHome extends StatelessWidget {
+  const MyHome({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HibbriOne'),
-        backgroundColor: Colors.lightBlueAccent,
-        foregroundColor: Colors.white,
-      ),
-      body: halaman[_index],
-      floatingActionButton: Container(
-        margin: const EdgeInsets.only(right: 10, bottom: 10),
-        child: FloatingActionButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text("Tombol tambah ditekan!"),
-                behavior: SnackBarBehavior.floating,
-              ),
-            );
-          },
-          backgroundColor: Colors.lightBlueAccent,
-          child: const Icon(Icons.add, color: Colors.white),
+        title: Text(
+          "Latihan Aplikasi",
+          style: TextStyle(
+            color: const Color.fromARGB(255, 255, 2, 2),
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+          ),
         ),
+        backgroundColor: Colors.blueGrey,
+        actions: [
+          Icon(Icons.person, color: const Color.fromARGB(255, 255, 0, 0)),
+          SizedBox(width: 10),
+          Icon(Icons.account_tree, color: const Color.fromARGB(255, 255, 0, 0)),
+          SizedBox(width: 10),
+          Icon(Icons.ac_unit, color: const Color.fromARGB(255, 255, 0, 0)),
+          SizedBox(width: 20),
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index,
-        onTap: _gantiHalaman,
-        selectedItemColor: Colors.lightBlue,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Pengaturan'),
+      body: Column(
+        children: [
+          Container(
+            width: 120,
+            height: 120,
+            alignment: Alignment.center,
+            margin: EdgeInsets.all(15),
+
+            decoration: BoxDecoration(
+              color: Colors.lightBlueAccent,
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color.fromARGB(255, 33, 1, 129),
+                  const Color.fromARGB(255, 41, 77, 31),
+                ],
+              ),
+              image: DecorationImage(
+                image: AssetImage("assets/images/joker.jpg"),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.circular(15),
+            ),
+
+            child: Text(
+              "Torahh..!!",
+
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 255, 0, 0),
+              ),
+            ),
+          ),
+
+          Container(
+            width: 120,
+            height: 120,
+            alignment: Alignment.center,
+            margin: EdgeInsets.all(15),
+
+            decoration: BoxDecoration(
+              color: Colors.lightBlueAccent,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color.fromARGB(255, 17, 101, 17),
+                  const Color.fromARGB(255, 15, 9, 147),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(15),
+            ),
+
+            child: Text(
+              "Hii..!!",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 255, 0, 0),
+                fontStyle: FontStyle.italic,
+              ),
+            ),
+          ),
+
+          Transform.rotate(
+            angle: 0.2,
+            child: Container(
+              width: 120,
+              height: 120,
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(15),
+
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    const Color.fromARGB(255, 25, 13, 141),
+                    const Color.fromARGB(255, 12, 120, 0),
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(15),
+              ),
+
+              child: Text(
+                "Jinzou..!!",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: const Color.fromARGB(255, 255, 0, 0),
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+
+          Transform.rotate(
+            angle: -0.2,
+            child: Container(
+              width: 120,
+              height: 120,
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(15),
+
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    const Color.fromARGB(255, 23, 120, 12),
+                    const Color.fromARGB(255, 7, 10, 147),
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage("assets/images/joker.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+
+              child: Text(
+                "Sen-ii..!!",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: const Color.fromARGB(255, 255, 0, 0),
+                  decoration: TextDecoration.lineThrough,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
